@@ -1,0 +1,46 @@
+
+
+.detail_box{
+    
+    text-align: start;
+    display: flex;
+    width: 85%;
+    padding-right: 13%;
+}
+.detail_box select{
+    outline: none;
+}
+.detail_box button{
+    margin-left: 20px;
+    width: 170px;
+    background-color: white;
+    height: 60px;
+    border-radius: 30px;
+}
+.detail_box button:hover{
+    color: white;
+    background-color: black;
+}
+.detail_img{
+    overflow: hidden;
+    width: 80%;
+    height: 70%;
+    margin-left: 10%;
+}
+.detail_img img{
+    width: 80%;
+    height: 70%;
+    margin-left: 10%;
+    transition: all 0.7s;
+}
+.detail_img img:hover{
+    transform: scale(1.3);
+}
+
+.detail_detail{
+    margin-top: 5%;
+    width: 50%;
+    height: 70%;
+    
+}
+

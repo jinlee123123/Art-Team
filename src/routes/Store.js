@@ -1,20 +1,23 @@
-import React, { Component, useState } from 'react';
+import React, { Component,useState } from 'react';
 import styled from "styled-components";
 import styles from "./Store.module.css";
-import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
+import { faCartPlus, faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {BrowserRouter, Routes, Route, Link, useNavigate} from 'react-router-dom';
+import Detail from './Product.js';
 
-  
-  
 
 
 
 function Store(){
 
+    
+    
     const [searchTab,setSearchTab] = useState(false);
     const searchActive = ()=>{
         setSearchTab(searchTab=>!searchTab)
-    }
+    };
+    
 
 
     return(
@@ -45,36 +48,28 @@ function Store(){
                         <li>Q&A</li>
                     </ul>
                 </div>
-        
+
 
             </div>
-                    <div className={styles.detail_box}>
-                        <div className={styles.detail_img}>
-                            <img src='product2.jpeg' ></img>
-                        </div>
-                        <div className={styles.detail_detail}>
-                            <h4>정지의 시작-2019-9 최승윤작가</h4>
-                            <h5>가격</h5>
-                            <p>350,000원</p>
-                            <h5>배송비</h5>
-                            <p>무료 | 제주 및 도서 산간 5,000원 추가</p>
-                            <h5>작품크기</h5>
-                            <p>91x73 캔버스</p>
-                            <hr></hr>
-                            <p>액자선택</p>
-                            <select>
-                                <option>액자 선택 x &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+0원</option>
-                                <option>호두나무색 원목액자 &nbsp;&nbsp;&nbsp;&nbsp; +25,000원</option>
-                                <option>매이플색 원목액자   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; +25,000원</option>
-                            </select>
-                            <hr></hr>
-                            <h4>총금액</h4>
-                            <button>구매하기</button><button>장바구니</button>
-                        </div>
-                    </div>
-                    <div></div>
+                <Product></Product>
+                
+            
+            </div>
+        </main>
+        
+        
+        
+        </>
+    )
+}
 
-                    {/* <div className={styles.product_container}>
+function Product(){
+
+    let navigate = useNavigate();
+
+    return(
+        <>
+        <div className={styles.product_container}>
                         <div className={styles.product_category}>
                             <p>Open Editions</p>
                             <h1>Soft & Pastelized</h1>
@@ -86,12 +81,12 @@ function Store(){
                             <div className={styles.sort_views}>조회순</div>&nbsp;|&nbsp;<div className={styles.sort_cost}>가격순</div>&nbsp;정렬
                         </div>
                         <div className={styles.product_grid}>
-                        <div className={styles.product}>
+                        <div className={styles.product} onClick={()=>{navigate('/detail')}}>
                             <img src='product1.png'></img>
                             <div className={styles.product_detail}>
                                 <h4>The Ultimate Canvas Creator</h4>
                                 <p>상품가격</p>
-                                <div className={styles.cart_btn}><FontAwesomeIcon icon={faCartPlus}/>&nbsp;&nbsp;장바구니에 담기</div>
+                                <div className={styles.cart_btn} onClick={()=>{navigate()}}><FontAwesomeIcon icon={faCartPlus}/>&nbsp;&nbsp;장바구니에 담기</div>
                             </div>
                         </div>                       
                         <div className={styles.product}>
@@ -219,14 +214,10 @@ function Store(){
                             &lt;&nbsp;1&nbsp;2&nbsp;3&nbsp;&gt;
                         </div>                                                                                   
                     </div>
-                     */}
-            </div>
-        </main>
-        
-        
-        
         </>
     )
+
 }
+
 
 export default Store;

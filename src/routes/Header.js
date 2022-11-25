@@ -1,9 +1,12 @@
 import React, { Component, useEffect, useState,useMemo } from 'react';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser,faCartPlus,faBars, } from "@fortawesome/free-solid-svg-icons";
+import {Link, useNavigate} from 'react-router-dom'
 
 
 function Header(){
+
+    let navigate = useNavigate();
     
     const [isOpen , setMenu] = useState(true); //메뉴 초기값을 false로 설정
     const [me, setMe] =useState('menu')
@@ -65,15 +68,15 @@ function Header(){
                 </div>
             </div>
             <div class="container">
-                <a href="#" class="brand">Art-Market</a>
+                <a href='/' class="brand">Art-Market</a>
                 <div class="container-inner">
                     <ul>
-                        <li><a href="#">Store</a></li>
-                        <li><a href="#">About</a></li>
+                        <li><a href='/store'>Store</a></li>
+                        <li><a href="/store">About</a></li>
                         <li><a href="#">Contact</a></li>
                     </ul>
                     <div class="log">
-                        <ul><li><a href="#"><FontAwesomeIcon icon={faUser}/></a></li>
+                        <ul><li onClick={()=>{navigate('/login')}}><FontAwesomeIcon icon={faUser}/></li>
                             <li><a href="#"><FontAwesomeIcon icon={faCartPlus}/></a></li>
                         </ul>
 
